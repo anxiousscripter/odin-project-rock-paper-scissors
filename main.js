@@ -1,60 +1,75 @@
 function getComputerChoice() {
-    let computerMove;
     const randomNumber = Math.random();
 
     if (randomNumber >= 0 && randomNumber <= 1/3) {
-        computerMove = 'Rock';
+        computerChoice = 'rock';
     } else if (randomNumber > 1/3 && randomNumber <= 2/3) {
-        computerMove = 'Paper';
+        computerChoice = 'paper';
     } else {
-        computerMove = 'Scissors';
+        computerChoice = 'scissors';
     }
 
-    return computerMove;
+    return computerChoice;
 }
 
 function getHumanChoice() {    
-    const playerMove = prompt("Rock, Paper, or Scissors?");
-
-    return playerMove;
+    let humanChoice = prompt("rock, paper, or scissors?").toLowerCase().trim();
+    return humanChoice;
 }
 
-function GamePlay() {
-    const winMessage = "You win!";
-    const loseMessage = "You lose.";
-    const tieMessage = "It's a tie."
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
 
-    const playerMove = getHumanChoice();
-    const computerMove = getComputerChoice();
+    function playRound(humanChoice, computerChoice) {
 
-    if(playerMove === computerMove) {
-        console.log(`You chose ${playerMove} and the Computer chose ${computerMove}. ${tieMessage}`);
-    } else if (playerMove === 'Rock' && computerMove === 'Paper') {
-        console.log(`You chose ${playerMove} and the Computer chose ${computerMove}. ${loseMessage}`);
-    } else if (playerMove === 'Rock' && computerMove === 'Scissors') {
-        console.log(`You chose ${playerMove} and the Computer chose ${computerMove}. ${winMessage}`);
-    } else if (playerMove === 'Paper' && computerMove === 'Rock') {
-        console.log(`You chose ${playerMove} and the Computer chose ${computerMove}. ${winMessage}`);
-    } else if (playerMove === 'Paper' && computerMove === 'Scissors') {
-        console.log(`You chose ${playerMove} and the Computer chose ${computerMove}. ${loseMessage}`);
-    } else if (playerMove === 'Scissors' && computerMove === 'Rock') {
-        console.log(`You chose ${playerMove} and the Computer chose ${computerMove}. ${loseMessage}`);
-    } else {
-        // Scissors vs Paper
-        console.log(`You chose ${playerMove} and the Computer chose ${computerMove}. ${winMessage}`);
+        const winMessage = "You win";
+        const loseMessage = "You lose";
+        const tieMessage = "Well, it's a tie"
+
+        if(humanChoice === computerChoice) {
+            console.log(`${tieMessage}.`);
+        } else if (humanChoice === 'rock' && computerChoice === 'paper') {
+            console.log(`${loseMessage}! ${computerChoice} beats ${humanChoice}.`);
+            computerScore++;
+        } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
+            console.log(`${winMessage}! ${humanChoice} beats ${computerChoice}.`);
+            humanScore++;
+        } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+            console.log(`${winMessage}! ${humanChoice} beats ${computerChoice}.`);
+            humanScore++;
+        } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
+            console.log(`${loseMessage}! ${computerChoice} beats ${humanChoice}.`);
+            computerScore++;
+        } else if (humanChoice === 'scissors' && computerChoice === 'rock') {
+            console.log(`${loseMessage}! ${computerChoice} beats ${humanChoice}.`);
+            computerScore++;
+        } else {
+            // scissors vs paper
+            console.log(`${winMessage}! ${humanChoice} beats ${computerChoice}.`);
+            humanScore++;
+        }
+
+        console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
     }
 
-    GameReplay();
-}
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
 
-function GameReplay() {
-    const replayChoice = confirm ("Do you want to play again?");
+    console.log("\nFinal Score:");
+    console.log(`Human: ${humanScore}`);
+    console.log(`Computer: ${computerScore}`);
 
-    if (replayChoice) {
-        GamePlay();
+    if (humanScore > computerScore) {
+        console.log("You won the game!");
+    } else if (computerScore > humanScore) {
+        console.log("The computer won the game!");
     } else {
-        console.log('Let\'s play again some time. Bye Bye!');
+        console.log("The game ended in a tie!");
     }
 }
 
-GamePlay();
+playGame();
