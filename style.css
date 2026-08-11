@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+	--font-style-pri: 'Poppins', sans-serif;
+
+	--border-clr: #333;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: var(--font-style-pri);
+	background-color: rgb(255, 255, 248);
+	color: #111;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex: 1;
+}
+
+h1 {
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+}
+
+.subtext {
+	margin-bottom: 2rem;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 1rem;
+}
+
+.play-choice-row {
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.btn-choice {
+	background-color: rgb(253, 253, 217);
+	padding: 1rem;
+	border: 2px solid var(--border-clr);
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.btn-choice:hover {
+	background-color: rgb(247, 247, 205);
+}
+
+.btn-choice img {
+	width: 100px;
+	height: auto;
+}
+
+.result {
+	margin-top: 3rem;
+}
+
+.score-row {
+	margin-top: 3rem;
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	width: 60%;
+}
+
+.score-row div:first-child,
+.score-row div:last-child {
+	flex: 2;
+}
+
+.score-row div:nth-child(2) {
+	flex: 1;
+}
+
+.player-name {
+	font-weight: 600;
+	border-bottom: 3px solid var(--border-clr);
+}
+
+footer {
+	background-color: #111;
+	color: #fff;
+	padding: 1rem;
+}
+
+footer p {
+	text-align: center;
+}

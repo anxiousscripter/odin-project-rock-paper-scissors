@@ -1,11 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors | The Odin Project</title>
-</head>
-<body>
-    <script src="./main.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Rock Paper Scissors | The Odin Project</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<main>
+			<div class="wrapper">
+				<h1>Rock, Paper, Scissors</h1>
+				<p class="subtext">Pick a move</p>
+				<div class="play-choice-row">
+					<div class="choice-block">
+						<button id="rock" class="btn-choice">
+							<img
+								src="images/play-icon-rock.png"
+								alt=""
+								width="500"
+								height="500" />
+						</button>
+						<p>rock</p>
+					</div>
+					<div class="choice-block">
+						<button id="paper" class="btn-choice">
+							<img
+								src="images/play-icon-paper.png"
+								alt=""
+								width="500"
+								height="500" />
+						</button>
+						<p>paper</p>
+					</div>
+					<div class="choice-block">
+						<button id="scissors" class="btn-choice">
+							<img
+								src="images/play-icon-scissors.png"
+								alt=""
+								width="500"
+								height="500" />
+						</button>
+						<p>scissors</p>
+					</div>
+				</div>
+				<div class="result-row">
+					<p class="result"></p>
+				</div>
+				<div class="score-row">
+					<div>
+						<p class="player-name">You</p>
+						<p class="player-score"></p>
+					</div>
+					<div>
+						<p>vs</p>
+					</div>
+					<div>
+						<p class="player-name">Computer</p>
+						<p class="computer-score"></p>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<p>&copy; 2026 Anxious Scripter</p>
+		</footer>
+		<script src="./main.js"></script>
+	</body>
 </html>
