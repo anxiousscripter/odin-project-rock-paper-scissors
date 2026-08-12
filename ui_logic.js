@@ -3,8 +3,8 @@ const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
 const result = document.querySelector('.result'); // line of text showing the result
-const humanScore = document.querySelector('.human-sore'); // actual score like 1 or 0
-const computerScore = document.querySelector('.computer-sore'); // actual score like 1 or 0
+const humanScore = document.querySelector('.human-score'); // actual score like 1 or 0
+const computerScore = document.querySelector('.computer-score'); // actual score like 1 or 0
 
 function getComputerChoice() {
 	const randomNumber = Math.random();
@@ -31,40 +31,40 @@ function playGame() {
 		const tieMessage = "It's a tie.";
 
 		if (humanChoice === computerChoice) {
-			console.log(
-				`You chose ${humanChoice}. Computer chose ${computerChoice}. ${tieMessage}`,
-			);
+			result.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}. ${tieMessage}`;
+			humanScore.textContent = String(numbHumanScore);
+			computerScore.textContent = String(numbComputerScore);
 		} else if (humanChoice === 'rock' && computerChoice === 'paper') {
-			console.log(
-				`You chose ${humanChoice}. Computer chose ${computerChoice}. ${loseMessage}`,
-			);
+			result.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}. ${loseMessage}`;
 			numbComputerScore++;
+			humanScore.textContent = String(numbHumanScore);
+			computerScore.textContent = String(numbComputerScore);
 		} else if (humanChoice === 'rock' && computerChoice === 'scissors') {
-			console.log(
-				`You chose ${humanChoice}. Computer chose ${computerChoice}. ${winMessage}`,
-			);
+			result.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}. ${winMessage}`;
 			numbHumanScore++;
+			humanScore.textContent = String(numbHumanScore);
+			computerScore.textContent = String(numbComputerScore);
 		} else if (humanChoice === 'paper' && computerChoice === 'rock') {
-			console.log(
-				`You chose ${humanChoice}. Computer chose ${computerChoice}. ${winMessage}`,
-			);
+			result.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}. ${winMessage}`;
 			numbHumanScore++;
+			humanScore.textContent = String(numbHumanScore);
+			computerScore.textContent = String(numbComputerScore);
 		} else if (humanChoice === 'paper' && computerChoice === 'scissors') {
-			console.log(
-				`You chose ${humanChoice}. Computer chose ${computerChoice}. ${loseMessage}`,
-			);
+			result.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}. ${loseMessage}`;
 			numbComputerScore++;
+			humanScore.textContent = String(numbHumanScore);
+			computerScore.textContent = String(numbComputerScore);
 		} else if (humanChoice === 'scissors' && computerChoice === 'rock') {
-			console.log(
-				`You chose ${humanChoice}. Computer chose ${computerChoice}. ${loseMessage}`,
-			);
+			result.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}. ${loseMessage}`;
 			numbComputerScore++;
+			humanScore.textContent = String(numbHumanScore);
+			computerScore.textContent = String(numbComputerScore);
 		} else {
 			// scissors vs paper
-			console.log(
-				`You chose ${humanChoice}. Computer chose ${computerChoice}. ${winMessage}`,
-			);
+			result.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}. ${winMessage}`;
 			numbHumanScore++;
+			humanScore.textContent = String(numbHumanScore);
+			computerScore.textContent = String(numbComputerScore);
 		}
 	}
 
@@ -83,4 +83,9 @@ function playGame() {
 	});
 }
 
+function resetScore() {}
+
 playGame();
+
+// Add logic for game end once player gets to 5 points
+// Add logic for score reset
