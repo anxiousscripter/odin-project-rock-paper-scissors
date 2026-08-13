@@ -4,13 +4,15 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Rock Paper Scissors | The Odin Project</title>
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body>
 		<main>
 			<div class="wrapper">
 				<h1>Rock, Paper, Scissors</h1>
-				<p class="subtext">
+				<p
+					class="subtext"
+					data-default="Pick a move. First one to 5 points wins the game.">
 					Pick a move. First one to 5 points wins the game.
 				</p>
 				<div class="play-choice-row">
@@ -45,18 +47,18 @@
 						<p>scissors</p>
 					</div>
 				</div>
-				<p class="result">...</p>
+				<p class="result" data-default="...">...</p>
 				<div class="score-row">
 					<div>
 						<p class="player-name">You</p>
-						<p class="human-score">-</p>
+						<p class="human-score" data-default="-">-</p>
 					</div>
 					<div>
 						<p>vs</p>
 					</div>
 					<div>
 						<p class="player-name">Computer</p>
-						<p class="computer-score">-</p>
+						<p class="computer-score" data-default="-">-</p>
 					</div>
 				</div>
 			</div>
@@ -64,7 +66,6 @@
 		<footer>
 			<p>&copy; 2026 Anxious Scripter</p>
 		</footer>
-		<script src="./ui_logic.js"></script>
-		<!-- <script src="./main.js"></script> -->
+		<script src="js/main.js"></script>
 	</body>
 </html>
